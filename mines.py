@@ -7,7 +7,7 @@ class Mines:
     def __init__(self, gridsize, numberofmines):
         self.flags = []
         self.__currgrid = [[' ' for i in range(gridsize)] for i in range(gridsize)]
-        self.__fail = False
+        self.__fail = False;
         self.__currcell = (0,0)
         emptygrid = [['0' for i in range(gridsize)] for i in range(gridsize)]
         self.__mines = self.__getmines(emptygrid, self.__currcell, numberofmines)        
@@ -100,7 +100,7 @@ class Mines:
         if not self.__fail:            
             self.__currcell = cell
             if self.__grid[cell[0]][cell[1]] == 'X':
-                self.__fail = True
+                self.__fail = True;
                 
         return self.__currgrid
 
@@ -126,8 +126,8 @@ if __name__ == '__main__':
     n_mines = 40
     sweeper = Mines(gridsize, n_mines)
     sweeper.showcurrent()
-    #while not sweeper.isfail():
-    #    a = random.randint(0, gridsize - 1)
-    #    b = random.randint(0, gridsize - 1)
-    #    sweeper.checkcell((a,b))
-    #    sweeper.showcurrent()
+    # while not sweeper.isfail():
+    #     a = random.randint(0, gridsize - 1)
+    #     b = random.randint(0, gridsize - 1)
+    #     sweeper.checkcell((a,b))
+    #     sweeper.showcurrent()
