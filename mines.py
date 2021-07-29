@@ -109,7 +109,7 @@ class Mines:
         if not self.__fail:            
             self.__currcell = cell
             if self.__grid[cell[0]][cell[1]] == 'X':
-                self.__fail = True;
+                self.__fail = True
                 
         return self.__currgrid
 
