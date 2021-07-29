@@ -131,15 +131,10 @@ class Mines:
 
         
 if __name__ == '__main__':
-    gridsize = 16
-    n_mines = 40
+    gridsize = int(input("Enter Grid Size: "))
+    n_mines = int(input("Enter Number of Mines: "))
     sweeper = Mines(gridsize, n_mines)
     sweeper.showcurrent()
-    #while not sweeper.isfail():
-      #a = random.randint(0, gridsize - 1)
-      #b = random.randint(0, gridsize - 1)
-      #sweeper.checkcell((a,b))
-      #sweeper.showcurrent()
 
 import copy
 
@@ -196,14 +191,6 @@ def simpleLogic(minesweeper, grid, row, col):
       if grid[n[0]][n[1]] == " ":
         if n not in minesweeper.flags:
           minesweeper.flags.append(n)
-          #for m in mines:
-            #if n in m:
-              #for i in m:
-                #if i not in n:
-                  #if i not in minesweeper.flags:
-                    #print("1")
-                    #minesweeper.checkcell(i)
-                    #minesweeper.showcurrent()
                     
 
   #rule 2
@@ -258,13 +245,6 @@ def thirdRule(grid, row, col, minesweeper):
     if getEmpty(grid, neighbors) > 0: # if it has multiple tiles around it
       mineCertain = []
       mineCertain.append((row,col))
-      #neighborNumbers = []
-      #for i in neighbors:
-      #  if(grid[i[0]][i[1]]) != ' ':
-      #    neighborNumbers.append(int(grid[i[0]][i[1]]))
-      #  else:
-      #    neighborNumbers.append(' ')
-      #print(neighborNumbers)
 
       emptyNeighbors = getEmptyNeighbors(grid, neighbors)
       #indexOfNeighborWith1 = neighborNumbers.index(1)
@@ -292,8 +272,7 @@ def main():
           if currentGrid[i][j] != "0" and currentGrid[i][j] != " ":
             simpleLogic(minesweeper, currentGrid, i, j)
             minesweeper.showcurrent()
-            #print(minesweeper.flags)
-            #print("# of flags: ",len(minesweeper.flags))
+
       if pastBoard == minesweeper.checkcell((0, 0)):
         it = it + 1
       else:
@@ -306,14 +285,7 @@ def main():
             minesweeper.checkcell((a,b))
             minesweeper.showcurrent()
             it = 0
-        #pick a square
         
-        #Rule 1: If a tile has the same amount of hidden squares around it as unflagged bombs remaining around it then all the hidden tiles are bombs
-
-        #Rule 2: If a tile has the same amount of flags around it as the number on the square then all remaining hidden tiles around it are not bombs
-
-        #Rule 3: If a tile has only one bomb left and still has multiple tiles around it, then those surrounding tiles should count as one bomb
-
   end = time.time()
   minesweeper.showcurrent()
   print("Win!")
